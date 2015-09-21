@@ -4,5 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" Runat="Server">
+    <Wrox:Banner ID="Banner2" runat="server" DisplayDirection="Horizontal" />
 </asp:Content>
 
