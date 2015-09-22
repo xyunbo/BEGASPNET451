@@ -132,3 +132,8 @@ footer
 {
   font-style: italic;
 }
+
+.ErrorMessage
+{
+color: Red;
+}

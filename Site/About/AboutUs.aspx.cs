@@ -11,7 +11,7 @@ public partial class About_AboutUs: BasePage
     {
         if (!Page.IsPostBack)
         {
-            Banner2.DisplayDirection = Direction.Vertical;
+            Banner2.NavigateUrl = "http://imar.spaanjaars.com";
         }
     }
 }
