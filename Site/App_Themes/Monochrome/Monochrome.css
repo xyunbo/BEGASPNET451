@@ -233,5 +233,15 @@ a.level1:hover, a.level2:hover
 
 .ErrorMessage
 {
-color: Red;
+    color: Red;
+}
+
+.PleaseWait
+{
+    height: 32px;
+    width: 500px;
+    background-image: url(Images/PleaseWait.gif);
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    line-height: 32px;
 }
