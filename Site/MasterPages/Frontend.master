@@ -12,7 +12,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                <Scripts>
+                    <asp:ScriptReference Path="~/Scripts/jquery-2.1.4.min.js" />
+                </Scripts>
+            </asp:ScriptManager>
+
             <div id="PageWrapper">
                 <header><a href="/"></a></header>
                 <nav>
@@ -27,9 +32,10 @@
                     <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
                 </nav>
                 <section id="MainContent">
-                    <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath><br /><br />
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath>
+                    <br />
+                    <br />
                     <asp:ContentPlaceHolder ID="cpMainContent" runat="server">
-
                         This is default text that shows up in content pages that don't 
                         explicitly override it.
                     </asp:ContentPlaceHolder>
@@ -43,6 +49,9 @@
                     <Wrox:Banner ID="Banner1" runat="server" DisplayDirection="Vertical" />
                 </aside>
                 <footer>Footer Goes Here</footer>
+                <asp:ContentPlaceHolder ID="cpClientScript" runat="server">
+
+                </asp:ContentPlaceHolder>
             </div>
         </div>
     </form>
