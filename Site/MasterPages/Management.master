@@ -15,6 +15,7 @@
                 <ul>
                     <li><a href="~/Management/Default.aspx" runat="server">Management Home</a></li>
                     <li><a href="~/Management/Genres.aspx" runat="server">Manage Genres</a></li>
+                    <li><a href="~/Management/Reviews.aspx" runat="server">Manage Reviews</a></li>
                 </ul>
             </nav>
             <section style="width: 750px; float: left;">
