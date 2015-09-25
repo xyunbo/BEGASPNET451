@@ -16,4 +16,11 @@
         });
     </script>
 </asp:Content>
-
+<asp:Content ID="Content3" runat="server" ContentPlaceHolderID="cpClientScript">
+<script>
+    $(function ()
+    {
+        $('#DemoTable').css('background-color', 'green');
+    });
+</script>
+</asp:Content>

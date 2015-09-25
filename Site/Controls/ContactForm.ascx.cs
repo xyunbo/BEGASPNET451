@@ -28,24 +28,33 @@ public partial class Controls_ContactForm : System.Web.UI.UserControl
     {
         if (Page.IsValid)
         {
-            string fileName = Server.MapPath("~/App_Data/ContactForm.txt");
-            string mailBody = File.ReadAllText(fileName);
-            mailBody = mailBody.Replace("##Name##", Name.Text);
-            mailBody = mailBody.Replace("##Email##", EmailAddress.Text);
-            mailBody = mailBody.Replace("##HomePhone##", PhoneHome.Text);
-            mailBody = mailBody.Replace("##BusinessPhone##", PhoneBusiness.Text);
-            mailBody = mailBody.Replace("##Comments##", Comments.Text);
-            MailMessage myMessage = new MailMessage();
-            myMessage.Subject = "Response from web site";
-            myMessage.Body = mailBody;
-            myMessage.From = new MailAddress("xyunbo@gmail.com", "Yunbo Xu");
-            myMessage.To.Add(new MailAddress("yuxu@gru.edu", "Yunbo Xu"));
-            myMessage.ReplyToList.Add(new MailAddress(EmailAddress.Text));
-            SmtpClient mySmtpClient = new SmtpClient();
-            mySmtpClient.Send(myMessage);
-            Message.Visible = true;
-            FormTable.Visible = false;
-            System.Threading.Thread.Sleep(5000);
+
+            try
+            {
+                string fileName = Server.MapPath("~/App_Data/ContactForm.txt");
+                string mailBody = File.ReadAllText(fileName);
+                mailBody = mailBody.Replace("##Name##", Name.Text);
+                mailBody = mailBody.Replace("##Email##", EmailAddress.Text);
+                mailBody = mailBody.Replace("##HomePhone##", PhoneHome.Text);
+                mailBody = mailBody.Replace("##BusinessPhone##", PhoneBusiness.Text);
+                mailBody = mailBody.Replace("##Comments##", Comments.Text);
+                MailMessage myMessage = new MailMessage();
+                myMessage.Subject = "Response from web site";
+                myMessage.Body = mailBody;
+                myMessage.From = new MailAddress("xyunbo@gmail.com", "Yunbo Xu");
+                myMessage.To.Add(new MailAddress("yuxu@gru.edu", "Yunbo Xu"));
+                myMessage.ReplyToList.Add(new MailAddress(EmailAddress.Text));
+                SmtpClient mySmtpClient = new SmtpClient();
+                mySmtpClient.Send(myMessage);
+                Message.Visible = true;
+                MessageSentPara.Visible = true;
+                FormTable.Visible = false;
+                System.Threading.Thread.Sleep(5000);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine();
+            }
         }
     }
 }

@@ -14,7 +14,8 @@
         <div>
             <asp:ScriptManager ID="ScriptManager1" runat="server">
                 <Scripts>
-                    <asp:ScriptReference Path="~/Scripts/jquery-2.1.4.min.js" />
+                    <asp:ScriptReference Name="jquery" />
+                    <asp:ScriptReference Path="~/Scripts/WebForms/WebUIValidation.js" />
                 </Scripts>
             </asp:ScriptManager>
 
@@ -50,7 +51,6 @@
                 </aside>
                 <footer>Footer Goes Here</footer>
                 <asp:ContentPlaceHolder ID="cpClientScript" runat="server">
-
                 </asp:ContentPlaceHolder>
             </div>
         </div>

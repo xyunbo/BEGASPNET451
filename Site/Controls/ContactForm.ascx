@@ -38,80 +38,85 @@
 </script>
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
-        <table class="auto-style1" runat="server" id="FormTable">
-            <tr>
-                <td colspan="3" style="text-align: center">
-                    <h1>Contact me</h1>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2"><span style="font-family: CourierStd-Bold; font-size: 9pt; color: rgb(0,0,0); font-style: normal; font-variant: normal;"><b>Name</b></span></td>
-                <td class="auto-style3">
-                    <asp:TextBox ID="Name" runat="server"></asp:TextBox>
-                </td>
-                <td class="auto-style2">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Name" CssClass="ErrorMessage" ErrorMessage="Enter Your Name">*</asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>E-mail address</td>
-                <td class="auto-style4">
-                    <asp:TextBox ID="EmailAddress" runat="server" TextMode="Email"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="EmailAddress" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Enter an e-mail address">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="EmailAddress" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>Repeat e-mail address</td>
-                <td class="auto-style4">
-                    <asp:TextBox ID="ConfirmEmailAddress" runat="server" TextMode="Email"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ConfirmEmailAddress" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Confirm the e-mail">*</asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="EmailAddress" ControlToValidate="ConfirmEmailAddress" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="The e-mail addresses">*</asp:CompareValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>Home phone number</td>
-                <td class="auto-style4">
-                    <asp:TextBox ID="PhoneHome" runat="server"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:CustomValidator ID="CustomValidator1" runat="server" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Enter your home or business phone number" OnServerValidate="CustomValidator1_ServerValidate" ClientValidationFunction="validatePhoneNumbers">*</asp:CustomValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>Business phone number</td>
-                <td class="auto-style4">
-                    <asp:TextBox ID="PhoneBusiness" runat="server"></asp:TextBox>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>Comments</td>
-                <td class="auto-style4">
-                    <asp:TextBox ID="Comments" runat="server" TextMode="MultiLine" ValidateRequestMode="Disabled"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Comments" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Enter a comment">*</asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td class="auto-style4">
-                    <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="SendButton_Click" />
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage" />
-                </td>
-            </tr>
-        </table>
-        <asp:Label ID="Message" runat="server" Text="Message Sent" Visible="false" />
+        <div id="TableWrapper">
+            <table class="auto-style1" runat="server" id="FormTable">
+                <tr>
+                    <td colspan="3" style="text-align: center">
+                        <h1>Contact me</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"><span style="font-family: CourierStd-Bold; font-size: 9pt; color: rgb(0,0,0); font-style: normal; font-variant: normal;"><b>Name</b></span></td>
+                    <td class="auto-style3">
+                        <asp:TextBox ID="Name" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="auto-style2">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Name" CssClass="ErrorMessage" ErrorMessage="Enter Your Name">*</asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>E-mail address</td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="EmailAddress" runat="server" TextMode="Email"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="EmailAddress" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Enter an e-mail address">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="EmailAddress" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Repeat e-mail address</td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="ConfirmEmailAddress" runat="server" TextMode="Email"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ConfirmEmailAddress" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Confirm the e-mail">*</asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="EmailAddress" ControlToValidate="ConfirmEmailAddress" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="The e-mail addresses">*</asp:CompareValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Home phone number</td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="PhoneHome" runat="server"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:CustomValidator ID="CustomValidator1" runat="server" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Enter your home or business phone number" OnServerValidate="CustomValidator1_ServerValidate" ClientValidationFunction="validatePhoneNumbers">*</asp:CustomValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Business phone number</td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="PhoneBusiness" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Comments</td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="Comments" runat="server" TextMode="MultiLine" ValidateRequestMode="Disabled"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Comments" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Enter a comment">*</asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="SendButton_Click" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <asp:Label ID="Message" runat="server" Text="Message Sent" Visible="false" CssClass="Attention" />
+        <p runat="server" id="MessageSentPara" visible="False">
+            Thank you for your message. We'll get in touch with you if necessary.
+        </p>
     </ContentTemplate>
 </asp:UpdatePanel>
 <asp:UpdateProgress ID="UpdateProgress1" runat="server">
@@ -121,3 +126,21 @@
         </div>
     </ProgressTemplate>
 </asp:UpdateProgress>
+<script>
+    $(function ()
+    {
+        $('form').bind('submit', function ()
+        {
+            if (Page.IsValid)
+            {
+                $('#TableWrapper').slideUp(3000);
+            }
+        });
+    });
+
+    function pageLoad()
+    {
+        $('.Attention').animate({ width: '600px' }, 3000).
+        animate({ width: '100px' }, 3000).fadeOut('slow');
+    }
+</script>
